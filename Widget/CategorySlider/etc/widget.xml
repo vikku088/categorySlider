@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+	<widget id="widget_categoryslider" class="Widget\CategorySlider\Block\Widget\CatewithimgWidget">
+		<label translate="true">Category with image Widget</label>
+		<description>Store Default Parent Category Widget</description>
+		<parameters>
+            <parameter name="enable"  xsi:type="select"  visible="true" sort_order="1" source_model="Widget\CategorySlider\Model\Config\Source\Truefalse">
+                <label translate="true">Enable Widget Slider</label>
+                <description translate="true">Select to Enable Slider on Cms Page</description>
+            </parameter>
+            <parameter name="blocktitle" xsi:type="text"  visible="true" required="true" sort_order="2">
+                <label translate="true">Main Title (Heading)</label>
+            </parameter>
+            <parameter name="tagline" xsi:type="text"  visible="true" required="true" sort_order="3">
+                <label translate="true">Tag Line (Sub-Heading)</label>
+            </parameter>
+			<parameter name="parentcat"  xsi:type="multiselect"  visible="true" sort_order="4" source_model="Widget\CategorySlider\Model\Config\Source\Categorylist">
+                <label translate="true">Select Categories </label>
+                <description translate="true">Category must have image uploaded</description>
+            </parameter>
+            <parameter name="minitems" xsi:type="text"  visible="true" required="true" sort_order="5">
+                <label translate="true">Minimum Items</label>
+                <description translate="true">Enter Minimum Number of Category Images(Must Be Greater than 0)</description>
+            </parameter>
+            <parameter name="maxitems" xsi:type="text"  visible="true" required="true" sort_order="6">
+                <label translate="true">Maximum Items</label>
+                <description translate="true">Enter Maximum Number of Category Images (Must Be Greater than 0 and Min Item)</description>
+            </parameter>
+            <parameter name="controlnave" xsi:type="select"  visible="true" required="false" sort_order="7" source_model="Widget\CategorySlider\Model\Config\Source\Truefalse">
+                <label translate="true">Controle Nav</label>
+                <description translate="true">Select Enable to Activate Dot Nav</description>
+            </parameter>
+            <parameter name="direction_nav" xsi:type="select"  visible="true" required="false" sort_order="8" source_model="Widget\CategorySlider\Model\Config\Source\Truefalse">
+                <label translate="true">Direction Nav</label>
+                <description translate="true">Select Enable to Activate Direction Nav</description>
+            </parameter>
+            <parameter name="itemmargin" xsi:type="text"  visible="true" required="true" sort_order="9">
+                <label translate="true">Item Margin</label>
+                <description translate="true">Margin Between Slider Images </description>
+            </parameter>
+            <parameter name="itemwidth" xsi:type="text"  visible="true" required="true" sort_order="10">
+                <label translate="true">Width For Slider Images</label>
+                <description translate="true">Enter the Width for Slider Images</description>
+            </parameter>
+		</parameters>
+	</widget>
+</widgets>

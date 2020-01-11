@@ -1,0 +1,55 @@
+<?php
+    $helper = $this->helper('Widget\CategorySlider\Helper\Data');
+    $categories = $this->getCategoryCollection();
+    $sliderMargin = $this->getMargin();
+    $maxItems = $this->getMaxItems();
+    $directionNav = $this->getDirectionNav();
+    $minItems = $this->getMinItems();
+    $loop = $this->getAnimationLoop();
+    $controlNav = $this->getControlNav();
+    $categoryHelper = $this->getCategoryHelper();
+    $itemWidth = $this->getItemWidth();
+    $status = $this->getStatus();
+    $extensionStatus = $helper->getconfigVal('enablecatslide/catslide/enable');
+?>
+<?php if($status && $extensionStatus):?>
+    <div class="widget block block-static-block cwiw" id="catewithimg">
+        <div class="block-content">
+            <div class="content-heading">
+                <h2 class="title"><?php echo $this->getMainTitle(); ?></h2>
+                <p class="info"><?php echo $this->getTagLine(); ?></p>
+            </div>
+            <div class="flexslider widget-slider">
+                <ul class="slides">
+                    <?php foreach ($categories as $category):
+                        $cat = $this->getCategorymodel($category->getId());
+                        $image = $cat->getImageUrl();
+                    ?>  
+                        <li> 
+                            <div class="slider">
+                                <a class="category_name" href="<?php echo $cat->getUrl(); ?>">
+                                <img src="<?php echo $image; ?>" class="img-responsive category_image" alt="<?php echo $cat->getName(); ?>" />
+                                    <h3><span><?php echo $cat->getName(); ?></span></h3>
+                                </a>
+                            </div>
+                        </li>
+                    <?php endforeach;?>
+                </ul>
+            </div>
+        </div>
+    </div>
+<?php endif;?>
+<script type="text/javascript">
+    requirejs(['jquery','flexslider'],function($,flex){
+        $('.flexslider.widget-slider').flexslider({
+            animation: "slide",
+            animationLoop: true,
+            itemWidth: <?= $itemWidth?>,
+            itemMargin: <?= $sliderMargin?>,
+            minItems: <?= $minItems;?>,
+            maxItems: <?= $maxItems?>,
+            controlNav: <?= $controlNav? 'true' : 'false' ;?>,
+            directionNav: <?= $directionNav? 'true' : 'false';?>
+        });
+    });
+</script>

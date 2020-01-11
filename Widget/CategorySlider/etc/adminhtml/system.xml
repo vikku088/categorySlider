@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+	    <tab id="categoryslider" translate="label" sortOrder="10">
+            <label>Category Slider Extension</label>
+        </tab>
+        <section id="enablecatslide" translate="label" type="text" sortOrder="320" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable Category Slider</label>
+            <tab>categoryslider</tab>
+            <resource>Widget_CategorySlider::config_categoryslider</resource>
+            <group id="catslide" translate="label" type="text" delault="1" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Enable Category Slider</label>
+                <field id="enable" translate="label comment" sortOrder="" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable / Disable Extension</comment>
+                    <validate>validate-number required-entry</validate>
+                </field>
+                <field id="impnote" translate="label" type="label" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>NOTE: </label>
+                    <comment><![CDATA[<div><b>- This Extension only fetch Category Image uploaded at Category Image field while creating category.</b></div><div><b>- Slider will appear on the selected cms page in which you have added it as a widget.</b> </div><div><b>- If Category do not have an Image then it will not appear on Landing Page.</b></div>]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
